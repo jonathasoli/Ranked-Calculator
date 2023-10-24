@@ -1,0 +1,23 @@
+// Definir uma função que recebe o número de vitórias e derrotas de um jogador
+function calcula_nivel(vitorias, derrotas) {
+  // Calcular o saldo de rankeadas
+  let saldo = vitorias - derrotas;
+  // Definir os níveis possíveis
+  let niveis = ["Ferro", "Bronze", "Prata", "Ouro", "Diamante", "Lendário", "Imortal"];
+  // Definir os limites de vitórias para cada nível
+  let limites = [10, 20, 50, 80, 90, 100, Infinity];
+  // Inicializar o nível do jogador como vazio
+  let nivel = "";
+  // Percorrer os limites e os níveis
+  for (let i = 0; i < limites.length; i++) {
+    // Se o número de vitórias for menor ou igual ao limite atual
+    if (vitorias <= limites[i]) {
+      // Atribuir o nível correspondente ao jogador
+      nivel = niveis[i];
+      // Encerrar o laço
+      break;
+    }
+  }
+  // Retornar o saldo e o nível do jogador
+  return [saldo, nivel];
+}
